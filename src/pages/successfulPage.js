@@ -10,7 +10,7 @@ export default function successfulPage() {
       <Purchase>
         <h2>Compra Exitosa </h2>
         <p>Espero que disfrutes tu ropa </p>
-        <span rol="img" aria-label="emoji ">❤️</span>
+        <span role="img" aria-label="emoji ">❤️</span>
         <Link to='/'>
           <Button>Volver al catálogo</Button>
         </Link>

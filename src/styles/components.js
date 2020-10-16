@@ -8,10 +8,11 @@ export const colors = {
   green: "#98ca3f",
   lightBlue: "#1e5372",
   softGray: "#f6f8f9",
+  puurple: "#665DCA"
 }
 
 export const StyledHeader = styled.header`
-
+  background-color: ${colors.darkBlue};
   margin-bottom: 0;
   padding: 0 0.5rem 0 0;
   height: 3.5rem;
