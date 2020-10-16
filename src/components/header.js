@@ -1,21 +1,24 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
+import { MenuItem, StyledHeader  } from "../styles/components"
 
 const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
+  <StyledHeader>
+    <Link to="/">
+      <img src="https://us.123rf.com/450wm/sellingpix/sellingpix1509/sellingpix150900012/45446570-stock-vector-hanger-fashion-text-logo-store-design-vector-template-creative-idea-for-clothes-outwear-shop-logotyp.jpg?ver=6" alt="logo " />
+    </Link>
+    <nav>
+      <ul>
+        <MenuItem>
+          <Link to="/">Ver todo</Link>
+        </MenuItem>
+        <MenuItem>
+          <Link to="/faldas">Faldas</Link>
+        </MenuItem>
+      </ul>
+    </nav>
+    <div>
       <h1 style={{ margin: 0 }}>
         <Link
           to="/"
@@ -28,7 +31,7 @@ const Header = ({ siteTitle }) => (
         </Link>
       </h1>
     </div>
-  </header>
+  </StyledHeader>
 )
 
 Header.propTypes = {

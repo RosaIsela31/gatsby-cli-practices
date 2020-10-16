@@ -2,20 +2,16 @@ import styled from "styled-components"
 import { above } from "./index"
 
 export const colors = {
-  green: "#98ca3f",
   orange: "#f8b71c",
   gray: "#969696",
-  darkBlue: "#1c3643",
+  darkBlue: "#665DCA",
+  green: "#98ca3f",
   lightBlue: "#1e5372",
   softGray: "#f6f8f9",
 }
 
 export const StyledHeader = styled.header`
-  background-image: linear-gradient(
-    90deg,
-    ${colors.darkBlue},
-    ${colors.lightBlue}
-  );
+
   margin-bottom: 0;
   padding: 0 0.5rem 0 0;
   height: 3.5rem;
@@ -32,9 +28,7 @@ export const StyledHeader = styled.header`
   }
   & > a > img {
     margin: 0;
-    background-color: ${colors.green};
     height: 100%;
-    padding: 0.5rem 0.8rem;
   }
   & ul {
     list-style: none;
