@@ -330,7 +330,8 @@ export const Footer = styled.footer`
   justify-content: center;
   align-items: center;
   padding: 2rem;
-  position: relative;
+  position: absolute;
+  width: 100%;
   bottom: 0;
   a {
     color: ${colors.green};

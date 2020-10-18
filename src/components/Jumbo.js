@@ -1,6 +1,7 @@
 import React from 'react'
 import { StyledJumbo } from '../styles/components'
 import { Image } from './'
+// import './layout.css'
 
 export default function Jumbo({ description }) {
   return (
@@ -9,7 +10,7 @@ export default function Jumbo({ description }) {
         <h2>Ya comprate ropa</h2>
         <small> {description} </small>
       </div>
-      <Image name='icon'/>
+      <Image className="woman" name='icon'/>
     </StyledJumbo>
   )
 }

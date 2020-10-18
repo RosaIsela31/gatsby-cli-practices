@@ -10,6 +10,11 @@ html {
   border-radius: 1000px;
 }
 
+.woman {
+  border: 1px solid red;
+  height: 5rem;
+}
+
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
