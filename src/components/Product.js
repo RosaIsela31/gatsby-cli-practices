@@ -9,12 +9,12 @@ export default function Product({products}) {
       <h2>Productos</h2>
       <section>
         {products.map(({node}) => {
-          let price = priceFormat(node.price)
+          const price = priceFormat(node.unit_amount)
         return (
           <article key={node.id}>
           <img src={node.product.metadata.img} alt={node.product.name} />
           <p>{node.product.name}</p>
-          <small>USD {price}</small>
+          <small>MXN {price}</small>
           <Link to={`/${node.id}`}>Comprar ahora</Link>
           </article>
         )
