@@ -6,4 +6,5 @@ export { default as Product } from './Product'
 export { default as ProductDetails } from './productDetails'
 export { default as Stars } from './Stars'
 export { default as SEO } from './seo'
+export { default as Car } from './Car'
 
