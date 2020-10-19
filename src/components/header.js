@@ -1,11 +1,14 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
-import React from "react"
+import React, {useContext} from "react"
 import { MenuItem, StyledHeader } from "../styles/components"
 import Logo from '../images/logo.png'
-// import './layout.css'
+import { CarContext } from '../context'
 
-const Header = () => (
+const Header = () => {
+  const { car } = useContext(CarContext)
+
+  return (
   <StyledHeader>
     <Link to="/">
       <img className="logoimg" src={Logo} alt="logo" />
@@ -21,14 +24,15 @@ const Header = () => (
         <MenuItem>
           <Link to="/car">
             <span>
-              <img className="car-img" src="https://i.postimg.cc/L6wpMxLt/cart.png" alt="carlogo" />
+                <img className="car-img" src="https://i.postimg.cc/L6wpMxLt/cart.png" alt="carlogo" />
+                {car.length}
             </span>
           </Link>
         </MenuItem>
       </ul>
     </nav>
   </StyledHeader>
-)
+)}
 
 Header.propTypes = {
   siteTitle: PropTypes.string,

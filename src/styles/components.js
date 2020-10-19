@@ -5,7 +5,7 @@ export const colors = {
   orange: "#f8b71c",
   gray: "#969696",
   darkBlue: "#665DCA",
-  green: "#98ca3f",
+  green: "#ff9f1c",
   lightBlue: "#1e5372",
   softGray: "#f6f8f9",
   puurple: "#665DCA"
@@ -200,7 +200,8 @@ export const StyledProductDetail = styled.div`
   text-align: justify;
   height: 82vh;
   img {
-    width: 100%;
+    width: 55%;
+    height: 37rem;
     object-fit: cover;
     object-position: center;
     margin: 0;
