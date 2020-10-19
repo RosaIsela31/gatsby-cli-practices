@@ -21,7 +21,7 @@ const Layout = ({ children }) => {
       <Content>
         <main>{children}</main>
         <Footer>
-          Con ♡ por Rosa Isela
+          ♡ Fashion
         </Footer>
       </Content>
     </>
