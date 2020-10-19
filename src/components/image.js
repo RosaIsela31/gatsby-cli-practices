@@ -1,11 +1,10 @@
 import React from 'react'
-import { graphql, StaticQuery } from 'gatsby'
+import { graphql, StaticQuery, useStaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
 
 export default function Image({ name }) {
-  return (
-    <StaticQuery
-      query={graphql`
+  const data = useStaticQuery(
+      graphql `
         query GET_IMAGE {
           icon: file(relativePath: {
             eq: "woman.png"
@@ -17,8 +16,10 @@ export default function Image({ name }) {
             }
           }
         }
-      `}
-      render={data => <Img fluid={data[name].childImageSharp.fluid}/>}
-    />
+      `
+  )
+
+  return (
+    <Img fluid={data[name].childImageSharp.fluid}/>
   )
 }

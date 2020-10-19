@@ -2,12 +2,13 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 import { MenuItem, StyledHeader } from "../styles/components"
+import Logo from '../images/logo.png'
 // import './layout.css'
 
 const Header = () => (
   <StyledHeader>
     <Link to="/">
-      <img className="logoimg" src="https://us.123rf.com/450wm/sellingpix/sellingpix1509/sellingpix150900012/45446570-stock-vector-hanger-fashion-text-logo-store-design-vector-template-creative-idea-for-clothes-outwear-shop-logotyp.jpg?ver=6" alt="logo" />
+      <img className="logoimg" src={Logo} alt="logo" />
     </Link>
     <nav>
       <ul>

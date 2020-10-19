@@ -25,11 +25,12 @@ export const StyledHeader = styled.header`
   justify-content: space-between;
   a {
     height: 100%;
-    font-size: 0.6rem;
+    font-size: 0.7rem;
   }
   & > a > img {
     margin: 0;
-    height: 100%;
+    height: 80%;
+    margin-top: 0.3rem;
   }
   & ul {
     list-style: none;
@@ -60,7 +61,7 @@ export const StyledJumbo = styled.div`
   flex-direction: column;
   justify-content: center;
   padding: 2rem 2rem;
-  color: white;
+  color: black;
   margin-bottom: 5rem;
   overflow: hidden;
   position: relative;
@@ -113,34 +114,19 @@ export const StyledJumbo = styled.div`
 
   &:before{
     content: " ";
-    background-color: red;
-    background-color: ${colors.darkBlue};
+    background-color: white;
+    background-color: ${colors.white};
     z-index: -1;
     position: absolute;
-    transform: rotate(-19deg);
     border-radius: 35%;
-    top: -25%;
     width: 120%;
     height: 15rem;
-    ${above.medium`
-      height: 20rem;
-      top: -50%;
-    `}
-    ${above.mediumL`
-      height: 30rem;
-      top: -60%;
-    `}
-    ${above.large`
-      width: 110vw;
-      height: 52vw;
-      top: -66%;
-    `}
   };
 
 `
 
 export const StyledProducts = styled.div`
-  background-color: ${colors.softGray};
+  background-color: #d8e2dc;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -155,6 +141,8 @@ export const StyledProducts = styled.div`
     object-fit: cover;
     object-position: center;
     margin: 0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
   }
   article {
     display: flex;
@@ -164,9 +152,11 @@ export const StyledProducts = styled.div`
     padding-bottom: 1rem;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border-radius: 10px;
+
     p {
       margin: 0;
-      color: ${colors.green};
+      color: black;
       font-weight: 500;
       font-size: 1.2rem;
     }
@@ -177,9 +167,9 @@ export const StyledProducts = styled.div`
     }
     a {
       text-decoration: none;
-      color: ${colors.darkBlue};
+      color: black;
       font-size: 0.8rem;
-      border-bottom: 3px solid ${colors.green};
+      border-bottom: 3px solid ${colors.darkBlue};
       span {
         color: ${colors.green};
       }
