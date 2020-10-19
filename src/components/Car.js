@@ -1,47 +1,81 @@
-import React, { useContext } from 'react'
-import { Link } from 'gatsby'
-import { Button, StyledCart } from '../styles/components'
-import priceFormat from '../utils/priceFormat'
-import { CarContext } from '../context'
+  import React, { useContext, useEffect, useState } from "react"
+  import { StyledCart, Button } from "../styles/components"
+  import priceFormat from "../utils/priceFormat"
+  import { CarContext } from "../context"
+  import { Link } from "gatsby"
+  export default function Cart() {
+    const { car } = useContext(CarContext)
+    const [total, setTotal] = useState(0)
+    const [stripe, setStripe] = useState()
+    const getTotal = () => {
+      setTotal(
+        car.reduce(
+          (acc, current) => acc + current.unit_amount * current.quantity,
+          0
+        )
+      )
+    }
+    useEffect(() => {
+      setStripe(window.Stripe(process.env.STRIPE_PK))
+      getTotal()
+    }, [])
 
-export default function Car() {
-  const { car } = useContext(CarContext)
-  return (
-    <StyledCart>
-      <h2>Carrito de compra</h2>
-      <table>
-        <tbody>
-          <tr>
-            <th>Producto</th>
-            <th>Precio</th>
-            <th>Cantidad</th>
-            <th>Total</th>
-          </tr>
-          {car.map(item => (
-            <tr key={item.sku}>
-              <td>
-                <img src={item.metadata.img} alt={item.name} />
-                {item.name}
-              </td>
-              <td>MXN {priceFormat(item.unit_amount)}</td>
-              <td>{item.quantity}</td>
-              <td>{priceFormat(item.unit_amount * item.quantity)}</td>
-            </tr>
-          ))}
-            <nav>
-              <div>
-                <h3>Subtotal: </h3>
-                <small>Total</small>
-              </div>
-              <div>
-                <Link to='/'>
-                  <Button type='outline'>Volver</Button>
-                </Link>
-                <Button>Comprar</Button>
-              </div>
-            </nav>
-        </tbody>
-      </table>
-    </StyledCart>
-  )
-}
+    const handleBuy = async event => {
+      event.preventDefault()
+      let item = car.map(({ id, quantity }) => ({
+        price: id,
+        quantity: quantity,
+      }))
+
+      const { error } = await stripe.redirectToCheckout({
+        lineItems: item,
+        mode: "payment",
+        successUrl: process.env.SUCCESS_REDIRECT,
+        cancelUrl: process.env.CANCEL_REDIRECT,
+      })
+      if (error) {
+        throw error
+      }
+    }
+    return (
+      <>
+        <StyledCart>
+          <h2> Your Car</h2>
+          <table>
+            <tbody>
+              <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+              </tr>
+              {car.map(item => (
+                <tr key={item.id}>
+                  <td>
+                    <img src={item.metadata.img} alt={item.name} />
+                  </td>
+                  <td>{priceFormat(item.unit_amount)}</td>
+                  <td>{item.quantity}</td>
+                  <td>{priceFormat(item.quantity * item.unit_amount)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <nav>
+            <div>
+              <h3>Subtotal: </h3>
+              <small>MXN {priceFormat(total)}</small>
+            </div>
+            <div>
+              <Link to="/">
+                <Button type="outline">Regresar</Button>
+              </Link>
+              <Button onClick={handleBuy} disabled={car.length === 0}>
+                Comprar
+              </Button>
+            </div>
+          </nav>
+        </StyledCart>
+      </>
+    )
+  }
