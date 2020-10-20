@@ -8,6 +8,10 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Content, Footer } from "../styles/components"
+import { ThemeProvider } from "theme-ui"
+import theme from "../gatsby-plugin-theme-ui/index"
+
+
 
 import Header from "./header"
 import "./layout.css"
@@ -16,7 +20,7 @@ const Layout = ({ children }) => {
 
 
   return (
-    <>
+    <ThemeProvider ThemeProvider theme={theme}>
       <Header />
       <Content>
         <main>{children}</main>
@@ -24,7 +28,7 @@ const Layout = ({ children }) => {
           ♡ Fashion
         </Footer>
       </Content>
-    </>
+    </ThemeProvider>
   )
 }
 
