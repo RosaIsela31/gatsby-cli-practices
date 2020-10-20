@@ -3,7 +3,8 @@
   import priceFormat from "../utils/priceFormat"
   import { CarContext } from "../context"
   import { Link } from "gatsby"
-  export default function Cart() {
+  
+  export default function Car() {
     const { car } = useContext(CarContext)
     const [total, setTotal] = useState(0)
     const [stripe, setStripe] = useState()
@@ -22,10 +23,14 @@
 
     const handleBuy = async event => {
       event.preventDefault()
-      let item = car.map(({ id, quantity }) => ({
-        price: id,
-        quantity: quantity,
-      }))
+      let item = car.map(({ id, quantity }) => {
+        console.log('id', id);
+        console.log('qty', quantity);
+        return ({
+          price: id,
+          quantity: quantity,
+        })
+      })
 
       const { error } = await stripe.redirectToCheckout({
         lineItems: item,
@@ -40,13 +45,13 @@
     return (
       <>
         <StyledCart>
-          <h2> Your Car</h2>
+          <h2>Tu carrito de compras</h2>
           <table>
             <tbody>
               <tr>
-                <th>Product</th>
-                <th>Price</th>
-                <th>Quantity</th>
+                <th>Producto</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
                 <th>Total</th>
               </tr>
               {car.map(item => (

@@ -10,6 +10,7 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-theme-ui`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-stripe`,
     {
@@ -27,8 +28,8 @@ module.exports = {
         name: `gatsby-starter-default`,
         short_name: `starter`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#fff`,
+        theme_color: `#fff`,
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
@@ -36,16 +37,16 @@ module.exports = {
     {
       resolve: `gatsby-plugin-typography`,
       options: {
-         pathToConfigModule: 'src/utils/typography'
-      }
+        pathToConfigModule: "src/utils/typography",
+      },
     },
     {
       resolve: `gatsby-source-stripe`,
       options: {
-        objects: ['Price'],
+        objects: ["Price"],
         secretKey: process.env.STRIPE_SK,
-      }
-    }
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

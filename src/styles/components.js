@@ -8,11 +8,9 @@ export const colors = {
   green: "#ff9f1c",
   lightBlue: "#1e5372",
   softGray: "#f6f8f9",
-  puurple: "#665DCA"
 }
 
 export const StyledHeader = styled.header`
-  background-color: ${colors.darkBlue};
   margin-bottom: 0;
   padding: 0 0.5rem 0 0;
   height: 3.5rem;
@@ -114,8 +112,7 @@ export const StyledJumbo = styled.div`
 
   &:before{
     content: " ";
-    background-color: white;
-    background-color: ${colors.white};
+    /* background-color: white; */
     z-index: -1;
     position: absolute;
     border-radius: 35%;
@@ -270,7 +267,6 @@ export const StyledCart = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    color: ${colors.darkBlue};
     div {
       display: flex;
       align-items: baseline;
