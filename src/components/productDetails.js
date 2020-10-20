@@ -12,7 +12,7 @@ import {
 } from '../styles/components'
 import  {SEO, Stars}  from './'
 
-export default function ProductDetails({ unit_amount, sku: id, product: {name, metadata}  }) {
+export default function ProductDetails({ unit_amount, id, product: {name, metadata}  }) {
   const formatePrice = priceFormat(unit_amount)
   const [ size, setSize ] = useState(2)
   const [qty, setQty] = useState(1)

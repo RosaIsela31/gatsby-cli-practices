@@ -4,12 +4,18 @@ import React, {useContext} from "react"
 import { MenuItem, StyledHeader } from "../styles/components"
 import Logo from '../images/logo.png'
 import { CarContext } from '../context'
+import { Box } from "theme-ui"
+ 
 
 const Header = () => {
   const { car } = useContext(CarContext)
 
   return (
-  <StyledHeader>
+    <Box
+      __css={{
+        bg: "black"
+      }}
+    >
     <Link to="/">
       <img className="logoimg" src={Logo} alt="logo" />
     </Link>
@@ -31,7 +37,7 @@ const Header = () => {
         </MenuItem>
       </ul>
     </nav>
-  </StyledHeader>
+  </Box>
 )}
 
 Header.propTypes = {
