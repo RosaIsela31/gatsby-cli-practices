@@ -4,7 +4,9 @@ const colorScheme = {
   purplePrimary: "#665DCA",
   pinkLight: "#FCF1F5",
   pinkIntermediate: "#E16F8F",
-  title: "#BB757D"
+  title: "#BB757D",
+  purpleLight: "#CED4DA",
+  grayLight: "#DFDFDF"
 }
 
 export const sizes = {
