@@ -31,7 +31,7 @@ export default function Product({products}) {
           display: "grid",
           gridGap: "2rem",
           width: "100%",
-          gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
+          gridTemplateColumns: "repeat(auto-fill, minmax(330px, 1fr))",
           p: 0,
 
         }}
@@ -50,6 +50,7 @@ export default function Product({products}) {
               boxShadow: "0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)",
               transition: "all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)",
               borderRadius: "10px",
+              m: "1rem",
               "&:hover": {
                 boxShadow: "0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)"
               }

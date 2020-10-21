@@ -3,15 +3,15 @@ import { CarContext } from '../context'
 import priceFormat from '../utils/priceFormat'
 import {
   // Tag,
-  SizeButton,
+  // SizeButton,
   // QtyButton,
-  SizeSelect,
+  // SizeSelect,
   // Button,
-  StyledProductDetail,
+  // StyledProductDetail,
   QtySelect
 } from '../styles/components'
 import { SEO, Stars } from './'
-import { Box } from 'theme-ui'
+import { jsx, Box } from 'theme-ui'
 
 export default function ProductDetails({ unit_amount, id, product: {name, metadata}  }) {
   const formatePrice = priceFormat(unit_amount)
@@ -30,10 +30,39 @@ export default function ProductDetails({ unit_amount, id, product: {name, metada
   }
 
   return (
-    <StyledProductDetail>
+    <Box
+      as="div"
+      __css={{
+        p: "2rem 10rem",
+        display: "flex",
+        flexDirection: "row",
+        textAlign: "justify",
+        height: "82vh",
+        bg: "grayLight"
+      }}
+    >
       <SEO title={name} />
-      <img src={metadata.img} alt={name} />
-      <div>
+      <Box
+        as="img"
+        src={metadata.img}
+        alt={name}
+        sx={{
+          width: "50%",
+          height: "32rem",
+          objectFit: "cover",
+          objectPosition: "center",
+          m: 0,
+        }}
+      />
+      <Box as="div"
+        __css={{
+          bg: "white",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          width: "80%"
+        }}
+      >
         <Box as="span"
           __css={{
             p: "0.3rem 1.5rem",
@@ -47,7 +76,17 @@ export default function ProductDetails({ unit_amount, id, product: {name, metada
           Productos populares
         </Box>
         <h2>{name}</h2>
-        <b>MXN {formatePrice}</b>
+        <Box
+          as="b"
+          __css={{
+            color: "purplePrimary",
+            fontSize: "1.5rem",
+            m: 0,
+            fontWeight: 800,
+          }}
+        >
+          MXN {formatePrice}
+        </Box>
         <Stars />
         <small>{metadata.description}</small>
         {metadata.wear && (
@@ -126,17 +165,60 @@ export default function ProductDetails({ unit_amount, id, product: {name, metada
           </Box>
         )}
         <p>Cantidad:</p>
-          <QtySelect>
-          <button onClick={() => (qty > 1 ? setQty(qty - 1) : null)}>-</button>
-          <input type='text' disabled value={qty} />
-          <button onClick={() => setQty(qty+1)}>+</button>
-          </QtySelect>
+        <Box as="div"
+          __css={{
+            display: "flex",
+            m: "0.6rem 0"
+          }}
+        >
+          <Box as="button"
+            onClick={() => (qty > 1 ? setQty(qty - 1) : null)}
+            __css={{
+              p: "0 10px",
+              bg: "transparent",
+              border: "2px solid rgba(0,0,0,0.1)",
+              width: "40px",
+              height: "40px",
+              color: "#707070"
+            }}
+          >
+            -
+          </Box>
+          <Box
+            as="input"
+            type='text'
+            disabled value={qty}
+            __css={{
+              p: "0.4rem",
+              bg: "transparent",
+              borderRight: "none",
+              borderLeft: "none",
+              borderTop: "2px solid rgba(0,0,0,0.1)",
+              borderBottom: "2px solid rgba(0,0,0,0.1)",
+              height: "40px",
+              width: "40px",
+            }}
+          />
+          <Box as="button"
+            onClick={() => setQty(qty + 1)}
+               __css={{
+              p: "0 10px",
+              bg: "transparent",
+              border: "2px solid rgba(0,0,0,0.1)",
+              width: "40px",
+              height: "40px",
+              color: "#707070"
+            }}
+          >
+            +
+          </Box>
+          </Box>
         <Box
           as="button"
           onClick={handleSubmit}
           __css={{
             cursor: "pointer",
-            bg: "pink",
+            bg: "purplePrimary",
             color: "white",
             fontSize: "0.9rem",
             p: "0.6rem 1rem",
@@ -147,7 +229,7 @@ export default function ProductDetails({ unit_amount, id, product: {name, metada
         >
           Agregar al carrito
         </Box>
-      </div>
-     </StyledProductDetail>
+      </Box>
+     </Box>
   )
 }
