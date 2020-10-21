@@ -1,6 +1,9 @@
 import React from 'react'
 import { graphql, StaticQuery, useStaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
+import { jsx, Box } from "theme-ui"
+import woman from '../images/woman.png'
+
 
 export default function Image({ name }) {
   const data = useStaticQuery(
@@ -20,6 +23,9 @@ export default function Image({ name }) {
   )
 
   return (
-    <Img fluid={data[name].childImageSharp.fluid}/>
+    <Box as="image" src={woman} 
+      __themeKey="styles" variant="img"
+      
+    />
   )
 }

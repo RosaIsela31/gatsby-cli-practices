@@ -53,74 +53,7 @@ export const StyledHeader = styled.header`
     }
   `}
 `
-export const StyledJumbo = styled.div`
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  padding: 2rem 2rem;
-  color: black;
-  margin-bottom: 5rem;
-  overflow: hidden;
-  position: relative;
-  
-  div{
-    padding: 1rem;
-    width: 35vw;
-  };
-  & h2 {
-    margin: 0;
-    font-weight: 500;
-    font-size: 1rem;
-  };
-  & small{
-    font-weight: 100;
-    font-size: 0.6rem;
-  };
-  & img{
-    width: 35vw;
-  };
-  ${above.medium`
-    padding: 2rem 4rem;
-    flex-direction: row;
-    & h2 {
-      font-size: 1rem;
-    };
-    & small{
-      font-size: 0.8rem;
-    };
-  `}
-  ${above.mediumL`
-    padding: 2rem 4rem;
-    flex-direction: row;
-    & h2 {
-      font-size: 1rem;
-    };
-    & small{
-      font-size: 0.8rem;
-    };
-  `}
-  ${above.large`
-    padding: 2rem 10rem;
-    flex-direction: row;
-    & h2 {
-      margin: 0;
-      font-weight: 500;
-      font-size: 2rem;
-    };
-  `}
 
-  &:before{
-    content: " ";
-    /* background-color: white; */
-    z-index: -1;
-    position: absolute;
-    border-radius: 35%;
-    width: 120%;
-    height: 15rem;
-  };
-
-`
 
 export const StyledProducts = styled.div`
   background-color: #d8e2dc;

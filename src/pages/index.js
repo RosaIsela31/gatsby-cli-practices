@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import SEO from "../components/seo"
-import { Jumbo, Product } from "../components"
+import { Product } from "../components"
 
 export const query = graphql`
   query GET_DATA  {
@@ -39,7 +39,7 @@ const IndexPage = ({ data }) => {
   return (
     <>
       <SEO title="Home" />
-      <Jumbo description={description} />
+      {/* <Jumbo description={description} /> */}
       <Product products={data.allStripePrice.edges} />
     </>
   )
