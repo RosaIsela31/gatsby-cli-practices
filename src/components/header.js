@@ -1,34 +1,69 @@
+/** @jsx jsx */
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
-import React, {useContext} from "react"
-import { MenuItem, StyledHeader } from "../styles/components"
+import {useContext} from "react"
+// import { MenuItem, StyledHeader } from "../styles/components"
 import Logo from '../images/logo.png'
 import { CarContext } from '../context'
-import { jsx, Box, useThemeUI } from "theme-ui"
+import { jsx, Box } from "theme-ui"
+
  
 
 const Header = () => {
-  const { car } = useContext(CarContext)
+  const {car} = useContext(CarContext)
 
   return (
     <Box
       __css={{
-        bg: "pinkPrincipal"
+        bg: "purplePrimary",
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "space-between",
+        height: "2rem"
       }}
     >
       <Link to="/">
-        <img className="logoimg" src={Logo} alt="logo" />
+        <img src={Logo} alt="logo" sx={{width: "5rem", m: 3,borderRadius: "150px"}}/>
       </Link>
-      <nav>
-        <ul>
-          <MenuItem margin>
-            <Link to="/">Ver todo</Link>
-          </MenuItem>
-          <MenuItem margin>
-            <Link to="/faldas">Faldas</Link>
-          </MenuItem>
-          <MenuItem>
-            <Link to="/car">
+      <nav >
+        <Box
+            as="ul"
+            __css={{
+              listStyle: "none",
+              display: "flex",
+              flexDirection: "row",
+            }}
+          >
+          <Box as="li" margin
+            __css={{py:50}}
+          >
+              <Box
+              as={Link}
+              to="/"
+                __css={{
+                  lineHeight: 1,
+                  textDecoration: "none",
+                  color: "white",
+                  cursor: "pointer",
+                }}
+              >Ver todo
+              </Box>
+          </Box>
+          <Box as="li"
+            __css={{py:45}}
+          >
+            <Box
+            as={Link}
+            to = "/car"
+            __css = {
+              {
+                lineHeight: 1,
+                textDecoration: "none",
+                color: "white",
+                cursor: "pointer",
+                px: 7,
+              }
+            } >
               <span>
                 <img
                   className="car-img"
@@ -37,9 +72,9 @@ const Header = () => {
                 />
                 {car.length}
               </span>
-            </Link>
-          </MenuItem>
-        </ul>
+            </Box>
+          </Box>
+        </Box>
       </nav>
     </Box>
   )}

@@ -10,6 +10,7 @@ import PropTypes from "prop-types"
 import { Content, Footer } from "../styles/components"
 import { ThemeProvider } from "theme-ui"
 import theme from "../gatsby-plugin-theme-ui/index"
+import { Box } from "theme-ui"
 
 
 
@@ -24,9 +25,20 @@ const Layout = ({ children }) => {
       <Header />
       <Content>
         <main>{children}</main>
-        <Footer>
+        <Box
+          as="footer"
+          __css={{
+            bg: "purplePrimary",
+            height: "5rem",
+            display: "flex", 
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            color: "white",
+          }}
+        >
           ♡ Fashion
-        </Footer>
+        </Box>
       </Content>
     </ThemeProvider>
   )

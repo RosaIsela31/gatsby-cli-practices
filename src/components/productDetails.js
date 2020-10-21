@@ -10,7 +10,8 @@ import {
   StyledProductDetail,
   QtySelect
 } from '../styles/components'
-import  {SEO, Stars}  from './'
+import { SEO, Stars } from './'
+import { Box } from 'theme-ui'
 
 export default function ProductDetails({ unit_amount, id, product: {name, metadata}  }) {
   const formatePrice = priceFormat(unit_amount)
@@ -33,7 +34,7 @@ export default function ProductDetails({ unit_amount, id, product: {name, metada
       <SEO title={name} />
       <img src={metadata.img} alt={name} />
       <div>
-        <Tag>Prodctos populares</Tag>
+        <Tag>Productos populares</Tag>
         <h2>{name}</h2>
         <b>MXN {formatePrice}</b>
         <Stars />
