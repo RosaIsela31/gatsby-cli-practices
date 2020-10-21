@@ -2,11 +2,11 @@ import React, { useState, useContext } from 'react'
 import { CarContext } from '../context'
 import priceFormat from '../utils/priceFormat'
 import {
-  Tag,
+  // Tag,
   SizeButton,
-  QtyButton,
+  // QtyButton,
   SizeSelect,
-  Button,
+  // Button,
   StyledProductDetail,
   QtySelect
 } from '../styles/components'
@@ -34,18 +34,96 @@ export default function ProductDetails({ unit_amount, id, product: {name, metada
       <SEO title={name} />
       <img src={metadata.img} alt={name} />
       <div>
-        <Tag>Productos populares</Tag>
+        <Box as="span"
+          __css={{
+            p: "0.3rem 1.5rem",
+            bg: "gray",
+            display: "inline-block",
+            m: "0.5rem 0",
+            color: "white",
+            borderRadius: "5px",
+          }}
+        >
+          Productos populares
+        </Box>
         <h2>{name}</h2>
         <b>MXN {formatePrice}</b>
         <Stars />
         <small>{metadata.description}</small>
         {metadata.wear && (
-          <SizeSelect selected={size}>
-            <SizeButton onClick={() => setSize(1)}>XS</SizeButton>
-            <SizeButton onClick={() => setSize(2)}>S</SizeButton>
-            <SizeButton onClick={() => setSize(3)}>M</SizeButton>
-            <SizeButton onClick={() => setSize(4)}>L</SizeButton>
-          </SizeSelect>
+          <Box
+            as="div"
+            selected={size}
+            __css={{
+              display:"grid",
+              width:"10rem",
+              gridTemplateColumns: "repeat(4, 1fr)",
+              gridGap: "8px",
+              fontSize: "0.8rem",
+              mt: "0.6rem"
+            }}
+          >
+            <Box as="button"
+              onClick={() => setSize(1)}
+              __css={{
+                p: "calc(0.4rem)",
+                bg: "transparent",
+                border: "2px solid rgba(0,0,0,0.3)",
+                color: "#272727",
+                opacity: 1,
+                transition: "0.4s all ease",
+                "&:hover": {
+                  transform: "scale(1.2)"
+                }
+              }}
+            >XS
+            </Box>
+             <Box as="button"
+              onClick={() => setSize(1)}
+              __css={{
+                p: "calc(0.4rem)",
+                bg: "transparent",
+                border: "2px solid rgba(0,0,0,0.3)",
+                color: "#272727",
+                opacity: 1,
+                transition: "0.4s all ease",
+                "&:hover": {
+                  transform: "scale(1.2)"
+                }
+              }}
+            >S
+            </Box>
+             <Box as="button"
+              onClick={() => setSize(1)}
+              __css={{
+                p: "calc(0.4rem)",
+                bg: "transparent",
+                border: "2px solid rgba(0,0,0,0.3)",
+                color: "#272727",
+                opacity: 1,
+                transition: "0.4s all ease",
+                "&:hover": {
+                  transform: "scale(1.2)"
+                }
+              }}
+            >M
+            </Box>
+             <Box as="button"
+              onClick={() => setSize(1)}
+              __css={{
+                p: "calc(0.4rem)",
+                bg: "transparent",
+                border: "2px solid rgba(0,0,0,0.3)",
+                color: "#272727",
+                opacity: 1,
+                transition: "0.4s all ease",
+                "&:hover": {
+                  transform: "scale(1.2)"
+                }
+              }}
+            >L
+            </Box>
+          </Box>
         )}
         <p>Cantidad:</p>
           <QtySelect>
@@ -53,7 +131,22 @@ export default function ProductDetails({ unit_amount, id, product: {name, metada
           <input type='text' disabled value={qty} />
           <button onClick={() => setQty(qty+1)}>+</button>
           </QtySelect>
-          <Button onClick={handleSubmit}>Agregar al carrito</Button>
+        <Box
+          as="button"
+          onClick={handleSubmit}
+          __css={{
+            cursor: "pointer",
+            bg: "pink",
+            color: "white",
+            fontSize: "0.9rem",
+            p: "0.6rem 1rem",
+            fontWeight: 500,
+            border: "3px solid white",
+            borderRadius: "12px",
+          }}
+        >
+          Agregar al carrito
+        </Box>
       </div>
      </StyledProductDetail>
   )
