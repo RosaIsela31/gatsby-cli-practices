@@ -1,8 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import priceFormat from '../utils/priceFormat'
-import { StyledProducts } from '../styles/components'
-import { jsx, Box } from "theme-ui"
+import { Box } from "theme-ui"
 import { Image } from 'theme-ui'
 
 

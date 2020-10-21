@@ -1,17 +1,8 @@
 import React, { useState, useContext } from 'react'
 import { CarContext } from '../context'
 import priceFormat from '../utils/priceFormat'
-import {
-  // Tag,
-  // SizeButton,
-  // QtyButton,
-  // SizeSelect,
-  // Button,
-  // StyledProductDetail,
-  QtySelect
-} from '../styles/components'
-import { SEO, Stars } from './'
-import { jsx, Box } from 'theme-ui'
+import { SEO } from './'
+import { Box } from 'theme-ui'
 
 export default function ProductDetails({ unit_amount, id, product: {name, metadata}  }) {
   const formatePrice = priceFormat(unit_amount)
@@ -87,7 +78,6 @@ export default function ProductDetails({ unit_amount, id, product: {name, metada
         >
           MXN {formatePrice}
         </Box>
-        <Stars />
         <small>{metadata.description}</small>
         {metadata.wear && (
           <Box

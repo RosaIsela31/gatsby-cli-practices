@@ -2,7 +2,6 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import {useContext} from "react"
-// import { MenuItem, StyledHeader } from "../styles/components"
 import Logo from '../images/logo.png'
 import { CarContext } from '../context'
 import { jsx, Box } from "theme-ui"
